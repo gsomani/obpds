@@ -98,7 +98,7 @@ def get_Fpsi_jacobian(N):
     rows[i] = j; cols[i] = j; data[i] = 1; i += 1
 
     # The interior matrix elements
-    for j in xrange(1, N-1):
+    for j in range(1, N-1):
         rows[i] = j; cols[i] = j-1; data[i] = 1; i += 1
         rows[i] = j; cols[i] =  j ; data[i] = 1; i += 1
         rows[i] = j; cols[i] = j+1; data[i] = 1; i += 1
@@ -250,7 +250,7 @@ def charge_neutrality(device, V, phi_p, phi_n, T=300., N=1000,
     ## Begin by setting the majority carrier density to the net doping density.
     psi0 = numpy.zeros(N)
     residual = numpy.zeros(N)
-    for i in xrange(N):
+    for i in range(N):
         try:
             phi_pi = phi_p[i]
             phi_ni = phi_n[i]
@@ -487,7 +487,7 @@ def get_phis(device, V, T, N):
     phi_n = numpy.empty(N)
 
     Fp, Fn = device._get_Fp_Fn(N)
-    for i in xrange(N):
+    for i in range(N):
         if Fp[i] is None:
             phi_p[i] = numpy.inf
         elif Fp[i] == 'left':

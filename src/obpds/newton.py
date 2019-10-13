@@ -81,7 +81,7 @@ def scalar_newton(G, A, u0, rtol=0, atol=1e-6, tau=0.5, max_iter=100):
     Gk = G(uk)
     Gk_norm = numpy.abs(Gk)
 
-    for k in xrange(1, max_iter+1):
+    for k in range(1, max_iter+1):
         # Step 2. Calculate the delta.
         duk = -Gk/Ak
 #         logger.debug('duk = %s', duk)
@@ -181,7 +181,7 @@ def newton(G, A, u0, rtol=0, atol=1e-6, tau=0.5, max_iter=100):
     Gk = G(uk)
     Gk_norm = norm(Gk)
 
-    for k in xrange(1, max_iter+1):
+    for k in range(1, max_iter+1):
         # Step 2. Calculate the delta.
         duk = spsolve(Ak, -Gk, use_umfpack=True)
 #         logger.debug('duk = %s', duk)

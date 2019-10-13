@@ -345,7 +345,7 @@ class TwoTerminalDevice(object):
         template = '\t'.join(['{}' for name in names])+'\n'
         with open(path, 'w') as f:
             f.write(header)
-            for i in xrange(arrays[0].size):
+            for i in range(arrays[0].size):
                 values = [repr(array[i]) for array in arrays]
                 f.write(template.format(*values))
 
@@ -622,7 +622,7 @@ class TwoTerminalDevice(object):
         fmin = numpy.inf
         fmax = -numpy.inf
         for field in fields:
-            for i in xrange(2, field.size-2):
+            for i in range(2, field.size-2):
                 delta_m2 = abs(field[i]-field[i-2])
                 delta_m1 = abs(field[i]-field[i-1])
                 delta_p1 = abs(field[i]-field[i+1])
@@ -707,7 +707,7 @@ class TwoTerminalDevice(object):
         '''
         V = numpy.linspace(Vstart, Vstop, Vnum)
         C = numpy.empty(Vnum)
-        for i in xrange(Vnum):
+        for i in range(Vnum):
             C[i] = self.get_capacitance(V[i], dV, T, N, approx)
         return C, V
 
@@ -778,6 +778,6 @@ class TwoTerminalDevice(object):
         template = '{V}\t{C}\t{rCs}\t{ndV_drCs}\n'
         with open(path, 'w') as f:
             f.write(header)
-            for i in xrange(V.size):
+            for i in range(V.size):
                 f.write(template.format(V=V[i], C=C[i],
                                         rCs=rCs[i], ndV_drCs=ndV_drCs[i]))
